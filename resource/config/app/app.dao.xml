@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+        default-autowire="byName" default-lazy-init="false">
+
+
+	<context:component-scan base-package="com.codegen"/>
+	<context:component-scan base-package="com.common"/>
+	
+	
+    <!-- sessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="defaultDataSource"/>
+       <!-- <property name="entityInterceptor">  
+            <bean class="com.common.utils.UpdateTableNameInterceptor" />  
+        </property>   -->
+       <!--  <property name="namingStrategy" ref="improvedNamingStrategy"></property> -->
+        <!-- packagesToScan可以自动搜索某个package的全部标记@Entity class -->
+        <property name="packagesToScan">
+            <list>
+                <value>com.**.po</value>
+                <value>org.**.po</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <!--常用数据库方言 MySQL5Dialect,SQLServerDialect,OracleDialect,SybaseDialect,DB2Dialect -->
+                <!-- com.common.base.Oracle10gDialect -->
+              <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop> 
+             <!--  <prop key="hibernate.dialect">com.common.base.Oracle10gDialect</prop> -->
+                <!-- after_transaction -->
+                <prop key="hibernate.connection.release_mode">after_transaction</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <!--<prop key="hibernate.query.substitutions">true 1, false 0</prop>-->
+                <prop key="hibernate.default_batch_fetch_size">4</prop>
+                <prop key="hibernate.autoReconnect">true</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <!--Hibernate TransactionManager-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <bean id="defaultDataSource" class="com.common.base.DynamicDataSource">
+        <property name="targetDataSources">
+            <map key-type="java.lang.String">
+                <entry key="default" value-ref="dataSource"/>
+            </map>
+        </property>
+        <property name="defaultTargetDataSource" ref="dataSource"/>
+        <!--1 basicDataSource 2 proxyDataSource-->
+        <property  name="type" value="1"/>
+    </bean>
+   <!--  <bean id="improvedNamingStrategy" class="com.common.utils.ImprovedNamingStrategy"></bean> -->
+	
+</beans>

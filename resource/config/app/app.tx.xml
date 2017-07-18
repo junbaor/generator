@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 业务系统 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	default-autowire="byName" default-lazy-init="false">
+
+    <!-- hibernate事务配置 -->
+	<tx:advice id="omstxAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" read-only="false" propagation="REQUIRED"
+				rollback-for="java.lang.Exception" />
+			<tx:method name="update*" read-only="false" propagation="REQUIRED"
+				rollback-for="java.lang.Exception" />
+			<tx:method name="delete*" read-only="false" propagation="REQUIRED"
+				rollback-for="java.lang.Exception" />
+			<tx:method name="find*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="get*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="query*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="search*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="*" read-only="false" propagation="SUPPORTS" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:advisor
+			pointcut="execution(* com.codegen.service..*.*(..)) or execution(* com.common.*.service..*.*(..)) or execution(* com.common.*.commonaction..*.*(..))"
+			advice-ref="omstxAdvice"  />
+	</aop:config>
+
+
+<!-- 
+
+    mybatis事务配置
+	<tx:advice id="mybatisTxAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="save*" read-only="false" propagation="REQUIRED"
+				rollback-for="java.lang.Exception" />
+			<tx:method name="update*" read-only="false" propagation="REQUIRED"
+				rollback-for="java.lang.Exception" />
+			<tx:method name="delete*" read-only="false" propagation="REQUIRED"
+				rollback-for="java.lang.Exception" />
+			<tx:method name="find*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="get*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="query*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="search*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="*" read-only="false" propagation="SUPPORTS" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:advisor
+			pointcut="execution(* com.cmbchina.yummy.*.service..*.*(..)) !execution(* com.cmbchina.yummy.conmg.service..*.*(..)) "
+			advice-ref="mybatisTxAdvice"  />
+	</aop:config>
+ -->
+
+
+<!--     ibatis事务配置，基础权限功能
+	<aop:config>  
+		<aop:aspect id="g4ServiceMonitor" ref="aspectBean">   
+			<aop:pointcut id="g4ExceptionPointcut"  
+				expression="execution(* org.g4studio.*.*.*.*(..)) or execution(* org.workflow.*.*.*.*(..))" />  
+			<aop:after-throwing pointcut-ref="g4ExceptionPointcut" method="interceptException" throwing="ex"/>  
+		</aop:aspect>  
+	</aop:config> 
+	
+	切面Bean
+	<bean id="aspectBean" class="org.g4studio.common.util.SpringBeanAspect" />  -->
+
+</beans>

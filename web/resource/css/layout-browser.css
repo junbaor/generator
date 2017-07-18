@@ -1,0 +1,215 @@
+®body {
+    font-family: 'lucida grande', tahoma, arial, sans-serif;
+    font-size: 11px;
+}
+a {
+    color: #15428B;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#header {
+    background: url(../image/layoutTopBg.gif) repeat-x center;
+}
+
+#header h1 {
+    font-size: 26px;
+    color: #fff;
+    font-style: oblique;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.systemButton {
+    width: 190px;
+    height: 25px;
+    
+    line-height: 27px;
+    /*background: url(../image/publish.gif) 0 -82px no-repeat;*/
+    margin-top: 35px;
+    text-align: right;
+}
+
+.bottom1 {font-size:12px;height: 25px;line-height: 25px;border-top:1px #3575AA solid;border-bottom:1px #EAF3F9 solid;background: url(../image/footerBg.gif) left top repeat-x;text-align: center;color: #fff;}
+
+/* Toolbar icons for absolute form example: */
+.icon-sys {
+    background-image: url(../image/setting.gif) !important;
+}
+.icon-card {
+    background-image: url(../image/Excel.png) !important;
+}
+.icon-predict {
+    background-image: url(../image/class.gif) !important;
+}
+.icon-warning {
+    background-image: url(../image/event.gif) !important;
+}
+.icon-monitor {
+    background-image: url(../image/method.gif) !important;
+}
+.icon-statistic {
+    background-image: url(../image/menu-icon-columnchart.png) !important;
+}
+.icon-report {
+    background-image: url(../image/accordian.gif) !important;
+}
+.upload-icon {
+    background-image: url(../image/image_add.png) !important;
+}
+.waringImg {
+    BACKGROUND-IMAGE: url( ../image/n63img.gif ) ! important
+}
+.textReadonly{
+    background:#dfe8f6;
+}
+
+/*under add by ritchrs*/
+.add {
+    background-image: url(../image/shared/icons/fam/add.gif) !important;
+}
+
+.edit {
+    background-image: url(../image/shared/icons/fam/cog_edit.png) !important;
+}
+
+.remove {
+    background-image: url(../image/shared/icons/fam/delete.gif) !important;
+}
+.view {
+    background-image: url(../image/shared/icons/fam/application_view_list.png) !important;
+}
+
+.x-tab-scroller-right-over {
+    background-position: -18px 0;
+}
+
+.x-tab-tabmenu-right {
+    background: transparent url(../image/tab-scroller-menu.gif) no-repeat 0 0;
+    border-bottom: 1px solid #8db2e3;
+    width:18px;
+    position:absolute;
+    right:0;
+    top:0;
+    z-index:10;
+    cursor:pointer;
+}
+.x-tab-tabmenu-over {
+    background-position: -18px 0;
+}
+.x-tab-tabmenu-disabled {
+    background-position: 0 0;
+    opacity:.5;
+    -moz-opacity:.5;
+    filter:alpha(opacity=50);
+    cursor:default;
+}
+.x-form-unit {
+    height: 22px;
+    line-height: 22px;
+    padding-left: 2px;
+    display: inline-block;
+    display: inline;
+}
+
+#phones {
+    background-color: #fff;
+    text-shadow: #fff 0 1px 0;
+}
+
+#phones ul {
+    position: relative;
+    display: block;
+    height: auto;
+    font-size: 85%;
+}
+
+#phones ul li img {
+    margin-bottom: 1px;
+}
+
+#phones ul li {
+    float: left;
+    padding: 8px 17px;
+    margin: 5px;
+/*    margin: 10px 0 0 25px;*/
+    text-align: center;
+    line-height: 1.25em;
+    color: #333;
+    font-family: "Helvetica Neue",sans-serif;
+    height: 80px;
+    width: 80px;
+    overflow: hidden;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+}
+
+/*#phones ul li.phone-hover {
+    background-color: #eee;
+}*/
+
+#phones ul li.x-view-selected {
+    background-color: rgba(100, 100, 100, .15);
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-top: 1px solid rgba(0, 0, 0, .15);
+}
+
+#phones ul li img {
+/*    display: block;*/
+}
+
+#phones li strong {
+    color: #000;
+    display: block;
+}
+
+#phones li span {
+    color: #999;
+}
+
+
+.x-date-middle {
+    width: 150px;
+}
+
+.ux-lovcombo-icon {
+    width: 16px;
+    height: 16px;
+    float: left;
+    background-position: -1px -1px ! important;
+    background-repeat: no-repeat ! important;
+}
+
+.ux-lovcombo-icon-checked {
+    background: transparent
+        url(../extjs/resources/images/default/menu/checked.gif);
+}
+
+.ux-lovcombo-icon-unchecked {
+    background: transparent
+        url(../extjs/resources/images/default/menu/unchecked.gif);
+}
+
+/* IE patch */
+.ext-ie .ux-lovcombo-item-text {
+    position: absolute;
+    left: 16px;
+    top: 3px;
+}
+
+.ext-ie .ux-lovcombo-icon {
+    float: none;
+}
+
+.ext-ie .x-combo-list-item {
+    position: relative;
+}
+/*ie6 tree*/
+/* .ext-strict .ext-ie6 .x-layout-split{background-color: #dfe8f6;}.ext-ie .x-tree .x-panel-body {position: relative;}.ext-ie .x-tree .x-tree-root-ct  {position: absolute;} */

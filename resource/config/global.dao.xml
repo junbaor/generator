@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 全局数据访问模型 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd" default-autowire="byName" default-lazy-init="false">
+
+    
+    <!-- 加载属性文件 -->
+ 	<context:property-placeholder location="classpath:remote-db.properties,classpath:global.g4.properties" />
+	
+	<!-- ===================数据源配置 ==================  -->
+	<!-- Apache Commons DBCP 数据源  -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${datasource.driverClassName}" />
+		<property name="url" value="${datasource.url}" />
+		<property name="username" value="${datasource.username}" />
+		<property name="password" value="${datasource.password}" />
+		<property name="initialSize" value="10" />
+		<property name="maxActive" value="15" />
+		<property name="maxIdle" value="15" />
+		<property name="minIdle" value="5" />
+		<property name="removeAbandoned" value="true" />
+		<property name="removeAbandonedTimeout" value="60" />
+		<property name="maxWait" value="10000" />
+		<property name="logAbandoned" value="true" />
+	</bean> 
+</beans>

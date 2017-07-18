@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+</head>
+<link rel="stylesheet" type="text/css" href="resource/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="resource/css/theme_styles.css"/>
+<link rel="stylesheet" type="text/css" href="resource/css/font-awesome.css"/>
+<style>
+    .menu{
+        cursor:pointer;
+    }
+</style>
+<script>
+    function forword(type){
+        if(type==1){
+            window.location.href='pages/codegen/codeGenerator.jsp';
+        }else{
+            window.location.href='pages/codegen/eadtsysdatabasesource.jsp';
+        }
+    }
+</script>
+<body>
+<div class="row">
+    <div class="col-lg-6 col-sm-6 col-xs-12">
+        <div class="main-box infographic-box colored emerald-bg menu" onclick="forword(1)">
+            <i class="fa fa-envelope"></i>
+            <span class="headline">代码生成器</span>
+            <span class="value">代码生成器</span>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-sm-6 col-xs-12">
+        <div class="main-box infographic-box colored green-bg menu" onclick="forword(2)">
+            <i class="fa fa-money"></i>
+             <span class="headline">数据源管理</span>
+            <span class="value">数据源管理</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
