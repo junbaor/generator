@@ -36,6 +36,7 @@
                 <!--<prop key="hibernate.query.substitutions">true 1, false 0</prop>-->
                 <prop key="hibernate.default_batch_fetch_size">4</prop>
                 <prop key="hibernate.autoReconnect">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
         </property>
     </bean>
